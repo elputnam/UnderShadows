@@ -73,9 +73,9 @@ function setup(){
 }
 
 function draw() {
-  if (frameCount==1){
-    capturer.start();
-    };
+  // if (frameCount==1){
+  //   capturer.start();
+  //   };
   background(0);
   tileCount = random(30);
 
@@ -208,10 +208,10 @@ image(terra1, random(-30, 30), 0);
      }    
    }
 
-  capturer.capture(document.getElementById('defaultCanvas0'));  
-  if (frameCount==3000){
-    save_record();
-  }
+  // capturer.capture(document.getElementById('defaultCanvas0'));  
+  // if (frameCount==3000){
+  //   save_record();
+  // }
   print(frameCount);
  
 }
