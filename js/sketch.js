@@ -29,6 +29,14 @@ let num = 0;
 // shapes
 let glitches = [];
 
+//CCapture
+//var capture = false; // default is to not capture frames, can be changed with button in browser
+var capturer = new CCapture({
+  format:'webm', 
+  workersPath: 'js/',
+  framerate: 5
+});
+
 function preload(){
   base = loadImage('images/base_UFS.jpg');
   beach1 = loadImage('images/beach1_UFS.png');
@@ -65,6 +73,9 @@ function setup(){
 }
 
 function draw() {
+  if (frameCount==1){
+    capturer.start();
+    };
   background(0);
   tileCount = random(30);
 
@@ -197,10 +208,17 @@ image(terra1, random(-30, 30), 0);
      }    
    }
 
+  capturer.capture(document.getElementById('defaultCanvas0'));  
+  if (frameCount==3000){
+    save_record();
+  }
+  print(frameCount);
  
 }
 
-
+function save_record() {
+  capturer.save();
+}
 
 function mousePressed(){
   let fs = fullscreen();
